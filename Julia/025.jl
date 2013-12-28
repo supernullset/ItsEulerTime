@@ -27,7 +27,7 @@ function execute_25()
     fibs = BigInt[]
     f_n1 = 0
     while length(string(f_n1)) < 1000
-        F_n  = f ^ n
+        F_n  = F ^ n
         f_n  = F_n[2]
         f_n1 = F_n[1]
         push!(fibs, f_n)
@@ -36,3 +36,5 @@ function execute_25()
     end
     n - 1
 end
+
+println(execute_25())
