@@ -9,8 +9,8 @@ main = do
     , ("002", show $ P.zeroZeroTwo)
     , ("003", show $ P.zeroZeroThree)
     , ("004", show $ P.zeroZeroFour)
-    -- , ("005", P.zeroZeroFive ())
-    -- , ("006", P.zeroZeroSix ())
-    -- , ("007", P.zeroZeroSeven ())
+    , ("005", show $ P.zeroZeroFive)
+    , ("006", show $ P.zeroZeroSix)
+    , ("007", show $ P.zeroZeroSeven)
     ]
 
