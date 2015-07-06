@@ -1,6 +1,7 @@
 module ZeroZeroOne (
     main
-  , parallelMain) where
+--  , parallelMain
+  ) where
 
 import Lib as L
 import Control.Parallel.Strategies

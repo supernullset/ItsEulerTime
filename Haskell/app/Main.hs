@@ -7,7 +7,7 @@ import System.Environment as Sys
 import System.Exit as E
 
 -- problems
-import qualified ZeroZeroOne (main, parallelMain)
+import qualified ZeroZeroOne (main)
 import qualified ZeroZeroTwo (main)
 import qualified ZeroZeroThree (main)
 import qualified ZeroZeroFour (main)
@@ -15,7 +15,7 @@ import qualified ZeroZeroFive (main)
 import qualified ZeroZeroSix (main)
 import qualified ZeroZeroSeven (main)
 
-problems = Map.fromList [ (1, show $ ZeroZeroOne.parallelMain)
+problems = Map.fromList [ (1, show $ ZeroZeroOne.main)
                         , (2, show $ ZeroZeroTwo.main)
                         , (3, show $ ZeroZeroThree.main)
                         , (4, show $ ZeroZeroFour.main)
