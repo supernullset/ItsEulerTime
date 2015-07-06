@@ -15,13 +15,13 @@ import qualified ZeroZeroFive (main)
 import qualified ZeroZeroSix (main)
 import qualified ZeroZeroSeven (main)
 
-problems = Map.fromList [ (1, show $ ZeroZeroOne.main)
-                        , (2, show $ ZeroZeroTwo.main)
-                        , (3, show $ ZeroZeroThree.main)
-                        , (4, show $ ZeroZeroFour.main)
-                        , (5, show $ ZeroZeroFive.main)
-                        , (6, show $ ZeroZeroSix.main)
-                        , (7, show $ ZeroZeroSeven.main)
+problems = Map.fromList [ (1, show ZeroZeroOne.main)
+                        , (2, show ZeroZeroTwo.main)
+                        , (3, show ZeroZeroThree.main)
+                        , (4, show ZeroZeroFour.main)
+                        , (5, show ZeroZeroFive.main)
+                        , (6, show ZeroZeroSix.main)
+                        , (7, show ZeroZeroSeven.main)
            ]
 
 main = do
