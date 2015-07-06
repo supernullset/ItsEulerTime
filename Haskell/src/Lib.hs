@@ -5,6 +5,7 @@ module Lib
        , isPalendrome
        , multiples
        , primes
+       , primeFactors
        , sumSquare
        , squareSum
        ) where
@@ -33,4 +34,5 @@ squareSum [] = 0
 squareSum [x] = x * x
 squareSum (x:xs) = (x + sum xs) ^ 2
 
+primeFactors = P.primeFactors
 primes = P.primes

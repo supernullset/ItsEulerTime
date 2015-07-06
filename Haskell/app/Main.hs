@@ -1,19 +1,27 @@
 module Main where
 
-import Problems as P
 import Control.Monad
 import Text.Printf (printf)
 import qualified Data.Map.Lazy as Map
 import System.Environment as Sys
 import System.Exit as E
 
-problems = Map.fromList [ (1, show $ P.zeroZeroOne)
-                        , (2, show $ P.zeroZeroTwo)
-                        , (3, show $ P.zeroZeroThree)
-                        , (4, show $ P.zeroZeroFour)
-                        , (5, show $ P.zeroZeroFive)
-                        , (6, show $ P.zeroZeroSix)
-                        , (7, show $ P.zeroZeroSeven)
+-- problems
+import qualified ZeroZeroOne (main)
+import qualified ZeroZeroTwo (main)
+import qualified ZeroZeroThree (main)
+import qualified ZeroZeroFour (main)
+import qualified ZeroZeroFive (main)
+import qualified ZeroZeroSix (main)
+import qualified ZeroZeroSeven (main)
+
+problems = Map.fromList [ (1, show $ ZeroZeroOne.main)
+                        , (2, show $ ZeroZeroTwo.main)
+                        , (3, show $ ZeroZeroThree.main)
+                        , (4, show $ ZeroZeroFour.main)
+                        , (5, show $ ZeroZeroFive.main)
+                        , (6, show $ ZeroZeroSix.main)
+                        , (7, show $ ZeroZeroSeven.main)
            ]
 
 main = do
