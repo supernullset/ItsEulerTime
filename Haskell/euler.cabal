@@ -27,6 +27,7 @@ library
                      , criterion >= 1.1.0
                      , primes >= 0.2.1
                      , containers >= 0.5.5
+                     , parallel >= 3.2
   default-language:    Haskell2010
 
 executable euler-bench
@@ -37,6 +38,7 @@ executable euler-bench
                      , euler
                      , criterion >= 1.1.0
                      , primes >= 0.2.1
+                     , parallel >= 3.2
   default-language:    Haskell2010
 
 executable euler
@@ -48,6 +50,7 @@ executable euler
                      , criterion >= 1.1.0
                      , primes >= 0.2.1
                      , containers >= 0.5.5
+                     , parallel >= 3.2
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N2 -eventlog
   default-language:    Haskell2010
 
@@ -58,7 +61,7 @@ test-suite new-template-test
   build-depends:       base
                      , euler
                      , primes >= 0.2.1
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+1  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
