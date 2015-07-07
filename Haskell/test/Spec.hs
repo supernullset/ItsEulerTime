@@ -42,3 +42,7 @@ main = hspec $ do
   describe "008" $ do
     it "must yield the correct answer of 23514624000" $
       ZeroZeroEight.main `shouldBe` 23514624000
+
+  describe "009" $ do
+    it "must yield the correct answer of 31875000" $
+      ZeroZeroEight.main `shouldBe` 31875000

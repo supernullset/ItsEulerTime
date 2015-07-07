@@ -13,7 +13,7 @@ step 1: define pythagorean triplet
 step 2: define does sum to 1000
 step 2: takeWhile sum3 (a,b,c) = 1000
 -}
-module Main where
+module ZeroZeroNine (main) where
 
 pythagTest :: (Int, Int, Int) -> Bool
 pythagTest (a,b,c) | ((a^2) + (b^2) == (c^2)) && (a<b) && (b<c) = True
@@ -29,10 +29,7 @@ triplets l = [[a,b,c] | m <- [2..limit],
                         a+b+c==l]
     where limit = floor . sqrt . fromIntegral $ l
 
-main = do
+main = (product . head . triplets $ 1000)
 --  let triplet = [ [a,b,c] | a <- [0..1000], b <-[0..1000], c <- [0..1000], pythagTest (a,b,c) == True, (a+b+c) == 1000]
 
-
-
-  print (product . head . triplets $ 1000)
 
