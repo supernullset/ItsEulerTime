@@ -25,7 +25,7 @@ library
                      , ZeroZeroSeven
                      , ZeroZeroEight
                      , ZeroZeroNine
-                     -- , ZeroOneZero
+                     , ZeroOneZero
                      -- , ZeroOneOne
                      -- , ZeroOneTwo
                      -- , ZeroOneThree

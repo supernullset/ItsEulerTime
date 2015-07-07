@@ -8,6 +8,8 @@ import qualified ZeroZeroFive (main)
 import qualified ZeroZeroSix (main)
 import qualified ZeroZeroSeven (main)
 import qualified ZeroZeroEight (main)
+import qualified ZeroZeroNine (main)
+import qualified ZeroOneZero (main)
 
 main :: IO ()
 main = hspec $ do
@@ -45,4 +47,8 @@ main = hspec $ do
 
   describe "009" $ do
     it "must yield the correct answer of 31875000" $
-      ZeroZeroEight.main `shouldBe` 31875000
+      ZeroZeroNine.main `shouldBe` 31875000
+
+  describe "010" $ do
+    it "must yield the correct answer of 142913828922" $
+      ZeroOneZero.main `shouldBe` 142913828922

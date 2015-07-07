@@ -4,13 +4,8 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 Find the sum of all the primes below two million.
 -}
 
-module Main where
+module ZeroOneZero (main) where
 
-import Data.Numbers.Primes
+import Lib as L
 
-main = do
-  let limit = 2000000
-
-  let sump = takeWhile ( < limit) primes
-
-  print $ sum sump
+main = sum $ takeWhile ( < 2000000) L.primes
