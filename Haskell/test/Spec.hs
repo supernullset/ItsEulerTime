@@ -10,7 +10,7 @@ import qualified ZeroZeroSeven (main)
 import qualified ZeroZeroEight (main)
 import qualified ZeroZeroNine (main)
 import qualified ZeroOneZero (main)
-import qualified ZeroOneOne (main)
+import qualified ZeroOneOne (main, parMain)
 
 main :: IO ()
 main = hspec $ do
@@ -57,3 +57,6 @@ main = hspec $ do
   describe "011" $ do
     it "must yield the correct answer of 70600674" $
       ZeroOneOne.main `shouldBe` 70600674
+
+    it "must yield the correct answer of 70600674 (parallel)" $
+      ZeroOneOne.parMain `shouldBe` 70600674

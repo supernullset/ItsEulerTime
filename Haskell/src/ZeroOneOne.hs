@@ -1,7 +1,9 @@
-module ZeroOneOne (main, grid) where
+module ZeroOneOne (main, parMain) where
 
 import Lib as L
 import Data.List (transpose)
+import Control.Parallel.Strategies
+
 {-
 Problem 11:
 
@@ -70,7 +72,6 @@ rightDiagonals = lower ++ upper where
 -- / diagonals
 -- This is accomplished in an odd way, by applying the SAME method
 -- above, to a flipped grid
-
 leftDiagonals = lower ++ upper where
   lower = diagonals $ reverse grid
   upper = diagonals $ transpose $ reverse grid
@@ -79,3 +80,13 @@ directions = concat [horizontals, verticals, rightDiagonals, leftDiagonals]
 
 -- group by 4 and find max
 main = maximum . map product $ concatMap (\o -> groupsOf 4 o) directions
+
+-- Parallel version
+parMain = runEval $ do
+  h <- rpar $ groupProd horizontals
+  v <- rpar $ groupProd verticals
+  r <- rpar $ groupProd rightDiagonals
+  l <- rpar $ groupProd leftDiagonals
+  s <- rseq $ maximum $ concat [h,v,r,l]
+  return s
+    where groupProd l = map product $ concatMap (\o -> groupsOf 4 o) l
