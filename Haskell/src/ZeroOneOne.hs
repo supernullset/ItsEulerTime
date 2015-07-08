@@ -56,17 +56,25 @@ grid = [
   [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48]
   ]
 
+diagonals g = transpose $ zipWith drop [0..] g
+
 horizontals = grid
 verticals = transpose grid
---diagonals = transpose $ zipWith drop [0..]
-rightDiagonals = lower ++ upper where
-  lower = transpose $ zipWith drop [0..] grid
-  upper = transpose $ zipWith drop [0..] verticals
 
+-- \ diagonals
+rightDiagonals = lower ++ upper where
+  lower = diagonals grid
+  upper = diagonals verticals
+
+
+-- / diagonals
+-- This is accomplished in an odd way, by applying the SAME method
+-- above, to a flipped grid
 leftDiagonals = lower ++ upper where
-  lower = transpose $ zipWith drop [0..] $ reverse grid
-  upper = transpose $ zipWith drop [0..] $ transpose $ reverse grid
+  lower = diagonals $ reverse grid
+  upper = diagonals $ transpose $ reverse grid
 
 directions = concat [horizontals, verticals, rightDiagonals, leftDiagonals]
 
+-- group by 4 and find max
 main = maximum $ map product $ concat $  map (\o -> groupsOf 4 o) directions
