@@ -8,6 +8,7 @@ module Lib
        , primeFactors
        , sumSquare
        , squareSum
+       , groupsOf
        ) where
 
 import Data.Char as C
@@ -36,3 +37,6 @@ squareSum (x:xs) = (x + sum xs) ^ 2
 
 primeFactors = P.primeFactors
 primes = P.primes
+
+groupsOf _ [] = []
+groupsOf n xs = take n xs : groupsOf n ( tail xs )
