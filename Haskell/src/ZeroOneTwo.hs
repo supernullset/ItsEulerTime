@@ -1,3 +1,4 @@
+module ZeroOneTwo (main) where
 {-
 problem 12:
 
@@ -20,8 +21,6 @@ What is the value of the first triangle number to have over five hundred divisor
 
 -}
 
-module Main where
-
 import Data.Numbers.Primes
 import Data.List
 
@@ -30,11 +29,8 @@ triangleTerm n = sum [0..n]
 
 termList = map triangleTerm [0..]
 
-problem_12 = head $ filter ((> 500) . nDivisors) triangleNumbers
-    where nDivisors n = product $ map ((+1) . length) (group (primeFactors n))    
+
+main = head $ filter ((> 500) . nDivisors) triangleNumbers
+    where nDivisors n = product $ map ((+1) . length) (group (primeFactors n))
           triangleNumbers = scanl1 (+) [1..]
-
-main = do
-
-  print problem_12
 

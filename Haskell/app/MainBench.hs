@@ -1,4 +1,4 @@
-module MainBench where
+-- module MainBench where
 
 import Lib
 import Criterion.Main
@@ -14,8 +14,8 @@ import qualified ZeroZeroSeven (main)
 import qualified ZeroZeroEight (main)
 import qualified ZeroZeroNine (main)
 import qualified ZeroOneZero (main)
-import qualified ZeroOneOne (main)
-
+import qualified ZeroOneOne (main, parMain)
+import qualified ZeroOneTwo (main)
 main = defaultMain [
    bgroup "Problems" [ bench "001" $ whnf (\x -> ZeroZeroOne.main) ()
                      , bench "002" $ whnf (\x -> ZeroZeroTwo.main) ()
@@ -28,5 +28,7 @@ main = defaultMain [
                      , bench "009" $ whnf (\x -> ZeroZeroNine.main) ()
                      , bench "010" $ whnf (\x -> ZeroOneZero.main) ()
                      , bench "011" $ whnf (\x -> ZeroOneOne.main) ()
+                     , bench "011p" $ whnf (\x -> ZeroOneOne.parMain) ()
+                     , bench "012" $ whnf (\x -> ZeroOneTwo.main) ()
                      ]
    ]
