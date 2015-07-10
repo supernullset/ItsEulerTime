@@ -12,6 +12,9 @@ import qualified ZeroZeroNine (main)
 import qualified ZeroOneZero (main)
 import qualified ZeroOneOne (main, parMain)
 import qualified ZeroOneTwo (main)
+import qualified ZeroOneThree (main)
+
+import System.IO
 
 main :: IO ()
 main = hspec $ do
@@ -65,3 +68,9 @@ main = hspec $ do
   describe "012" $ do
     it "must yield the correct answer of 76576500" $
       ZeroOneTwo.main `shouldBe` 76576500
+
+  describe "013" $ do
+    it "must yield the correct answer of 5537376230" $ do
+      m <- ZeroOneThree.main
+      m `shouldBe` "5537376230"
+
