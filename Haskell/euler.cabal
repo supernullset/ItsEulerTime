@@ -32,6 +32,7 @@ library
                      , ZeroOneFour
                      , ZeroOneFive
                      , ZeroOneSix
+                     , ZeroOneSeven
   build-depends:       base >= 4.7 && < 5
                      , criterion >= 1.1.0
                      , primes >= 0.2.1
