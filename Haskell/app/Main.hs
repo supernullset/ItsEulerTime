@@ -21,6 +21,7 @@ import qualified ZeroOneOne (main)
 import qualified ZeroOneTwo (main)
 import qualified ZeroOneThree (main)
 import qualified ZeroOneFour (main)
+import qualified ZeroOneFive (main)
 
 problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (2, show ZeroZeroTwo.main)
@@ -35,6 +36,7 @@ problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (12, show ZeroOneTwo.main)
 -- TODO: zeroOneThree is IO String, breaks map :( , (13, show ZeroOneThree.main)
                         , (14, show ZeroOneFour.main)
+                        , (15, show ZeroOneFive.main)
            ]
 
 main = do
