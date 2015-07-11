@@ -1,10 +1,12 @@
+module ZeroOneFour (main) where
+
 {-
 problem 14.hs
 
 The following iterative sequence is defined for the set of positive integers:
 
-n  n/2 (n is even)
-n  3n + 1 (n is odd)
+n -> n/2 (n is even)
+n -> 3n + 1 (n is odd)
 
 Using the rule above and starting with 13, we generate the following sequence:
 
@@ -16,28 +18,20 @@ Which starting number, under one million, produces the longest chain?
 NOTE: Once the chain starts the terms are allowed to go above one million.
 -}
 
-module Main where
-import Data.Numbers.Primes
+import Lib as L
 
-collatzProblem :: Integer -> Integer
-collatzProblem 0 =0
-collatzProblem 1 = 1
-collatzProblem n | even n == True = div n 2
-                 | otherwise = (3*n) +1
+import Data.Function
+import Data.List
 
 recursiveCollatz :: Integer -> [Integer]
-recursiveCollatz 0 = []
-recursiveCollatz 1 = 1 : []
-recursiveCollatz n = n : recursiveCollatz (collatzProblem n) 
+recursiveCollatz 1 = [1]
+recursiveCollatz n | even n    = n : recursiveCollatz (n `div` 2)
+                   | otherwise = n : recursiveCollatz (3 * n + 1)
 
-comparative :: Int -> Int -> Int
-comparative x y | x < y = y
-                | otherwise = x
+-- main = last (sortBy (compare `on` length . snd) $ collatz)
+--   where 
+--     collatz = map (\x -> (x, recursiveCollatz x)) [1..1000000]
 
-main = do
-  let limit = 1000000
---  let nonPrimes = filter (\x -> isPrime x /= True) [0..limit]
-  let collatz = map length (map recursiveCollatz [0..limit])
-  let result = foldl1 comparative collatz
-  
-  print $ [0..limit] !! result
+-- maximumBy is great, it seems to discard as we go. This is a good
+-- thing to know
+main = maximumBy (compare `on` (length . recursiveCollatz)) [1..999999]
