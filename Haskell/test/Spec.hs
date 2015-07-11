@@ -14,6 +14,7 @@ import qualified ZeroOneOne (main, parMain)
 import qualified ZeroOneTwo (main)
 import qualified ZeroOneThree (main)
 import qualified ZeroOneFour (main)
+import qualified ZeroOneFive (main)
 
 main :: IO ()
 main = hspec $ do
@@ -76,3 +77,7 @@ main = hspec $ do
   describe "014" $ do
     it "must yield the correct answer of 837799" $
       ZeroOneFour.main `shouldBe` 837799
+
+  describe "015" $ do
+    it "must yield the correct answer of 137846528820" $
+      ZeroOneFive.main `shouldBe` 137846528820
