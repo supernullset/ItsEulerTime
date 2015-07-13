@@ -24,6 +24,7 @@ import qualified ZeroOneFour (main)
 import qualified ZeroOneFive (main)
 import qualified ZeroOneSix (main)
 import qualified ZeroOneSeven (main)
+import qualified ZeroOneEight (main)
 
 problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (2, show ZeroZeroTwo.main)
@@ -41,6 +42,7 @@ problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (15, show ZeroOneFive.main)
                         , (16, show ZeroOneSix.main)
                         , (17, show ZeroOneSeven.main)
+                        , (18, show ZeroOneEight.main)
            ]
 
 main = do

@@ -21,6 +21,7 @@ import qualified ZeroOneFour (main)
 import qualified ZeroOneFive (main)
 import qualified ZeroOneSix (main)
 import qualified ZeroOneSeven (main)
+import qualified ZeroOneEight (main)
 
 main = defaultMain [
    bgroup "Problems" [ bench "001" $ whnf (\x -> ZeroZeroOne.main) ()
@@ -41,5 +42,6 @@ main = defaultMain [
                      , bench "015" $ whnf (\x -> ZeroOneFive.main) ()
                      , bench "016" $ whnf (\x -> ZeroOneSix.main) ()
                      , bench "017" $ whnf (\x -> ZeroOneSeven.main) ()
+                     , bench "018" $ whnf (\x -> ZeroOneEight.main) ()
                      ]
    ]
