@@ -39,7 +39,9 @@ specialCases = Map.fromList [
 
 getNumber n = (fst $ specialCases Map.! n)
 
-splitDouble n = (getNumber tens) ++ withSingle singles
+splitDouble n = if Map.member n specialCases
+                then getNumber n
+                else (getNumber tens) ++ withSingle singles
   where
     sWord = show n
     tens =  10 * (digitToInt $ head sWord)
