@@ -7,6 +7,5 @@ main = hspec spec
 
 spec = do
   describe "main" $ do
-    it "must yield the correct answer of 5537376230" $ do
-      m <- ZeroOneThree.main
-      m `shouldBe` "5537376230"
+    it "must yield the correct answer of 5537376230" $
+      ZeroOneThree.main `shouldBe` "5537376230"
