@@ -5,6 +5,7 @@ import Text.Printf (printf)
 import qualified Data.Map.Lazy as Map
 import System.Environment as Sys
 import System.Exit as E
+import Options.Applicative
 
 -- problems
 import qualified ZeroZeroOne (main)
@@ -29,6 +30,32 @@ import qualified ZeroOneNine (main)
 import qualified ZeroTwoZero (main)
 import qualified ZeroTwoOne (main)
 
+data Instruction = Instruction {
+  problemList :: Int
+  }
+
+instructionParser :: Parser Instruction
+instructionParser = Instruction <$> option auto (
+  long "p"
+  <> metavar "problem numbers"
+  <> help "comma separated list" )
+
+runProblems :: Instruction -> IO ()
+runProblems (Instruction ps) = do
+  let requestedProblems = [ps]
+  let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
+  mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
+  E.exitSuccess
+runProblems _ = return ()
+
+main = execParser opts >>= runProblems
+  where
+    opts = info (helper <*> instructionParser)
+           ( fullDesc
+             <> progDesc "Run the given project Euler problems"
+             <> header "euler - a runner for Project Euler solutions"
+           )
+
 problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (2, show ZeroZeroTwo.main)
                         , (3, show ZeroZeroThree.main)
@@ -52,24 +79,21 @@ problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (21, show ZeroTwoOne.main)
            ]
 
-main = do
-  args <- Sys.getArgs
-  if length args < 1
-    then do
-      putStrLn "Please provide an integer argument"
-      E.exitFailure
-    else do
-      if args == ["--all"]
-        then do
-          let requestedProblems = [1..21]
-          let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
-          mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
-          E.exitSuccess
-        else do
-          let requestedProblems = map (\x -> read x :: Int) args
-          let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
-          mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
-          E.exitSuccess
+-- main = do
+--   args <- Sys.getArgs
+--   if length args < 1
+--     then do
+--       putStrLn "Please provide an integer argument"
+--       E.exitFailure
+--     else do
+--       if args == ["--all"]
+--         then do
+--           let requestedProblems = [1..21]
+--           let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
+--           mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
+--           E.exitSuccess
+--         else do
+
 
 numToStr :: Int -> String
 numToStr a = printf "%03d" a
