@@ -27,6 +27,7 @@ import qualified ZeroOneSeven (main)
 import qualified ZeroOneEight (main)
 import qualified ZeroOneNine (main)
 import qualified ZeroTwoZero (main)
+import qualified ZeroTwoOne (main)
 
 problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (2, show ZeroZeroTwo.main)
@@ -48,6 +49,7 @@ problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (18, show ZeroOneEight.main)
                         , (19, show ZeroOneNine.main)
                         , (20, show ZeroTwoZero.main)
+                        , (21, show ZeroTwoOne.main)
            ]
 
 main = do
@@ -59,7 +61,7 @@ main = do
     else do
       if args == ["--all"]
         then do
-          let requestedProblems = [1..20]
+          let requestedProblems = [1..21]
           let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
           mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
           E.exitSuccess
