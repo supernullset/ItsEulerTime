@@ -34,6 +34,7 @@ problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (4, show ZeroZeroFour.main)
                         , (5, show ZeroZeroFive.main)
                         , (6, show ZeroZeroSix.main)
+                        , (7, show ZeroZeroSeven.main)
                         , (8, show ZeroZeroEight.main)
                         , (9, show ZeroZeroNine.main)
                         , (10, show ZeroOneZero.main)
@@ -58,12 +59,15 @@ main = do
     else do
       if args == ["--all"]
         then do
-          putStrLn "No support for all problems yet"
+          let requestedProblems = [1..20]
+          let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
+          mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
           E.exitSuccess
         else do
           let requestedProblems = map (\x -> read x :: Int) args
           let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
           mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
+          E.exitSuccess
 
 numToStr :: Int -> String
 numToStr a = printf "%03d" a
