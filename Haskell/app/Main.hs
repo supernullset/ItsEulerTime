@@ -30,31 +30,6 @@ import qualified ZeroOneNine (main)
 import qualified ZeroTwoZero (main)
 import qualified ZeroTwoOne (main)
 
-data Instruction = Instruction {
-  problemList :: Int
-  }
-
-instructionParser :: Parser Instruction
-instructionParser = Instruction <$> option auto (
-  long "p"
-  <> metavar "problem numbers"
-  <> help "comma separated list" )
-
-runProblems :: Instruction -> IO ()
-runProblems (Instruction ps) = do
-  let requestedProblems = [ps]
-  let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
-  mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
-  E.exitSuccess
-runProblems _ = return ()
-
-main = execParser opts >>= runProblems
-  where
-    opts = info (helper <*> instructionParser)
-           ( fullDesc
-             <> progDesc "Run the given project Euler problems"
-             <> header "euler - a runner for Project Euler solutions"
-           )
 
 problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (2, show ZeroZeroTwo.main)
@@ -79,20 +54,39 @@ problems = Map.fromList [ (1, show ZeroZeroOne.main)
                         , (21, show ZeroTwoOne.main)
            ]
 
--- main = do
---   args <- Sys.getArgs
---   if length args < 1
---     then do
---       putStrLn "Please provide an integer argument"
---       E.exitFailure
---     else do
---       if args == ["--all"]
---         then do
---           let requestedProblems = [1..21]
---           let problemsToSolve = map (\x -> (x, problems Map.! x)) requestedProblems
---           mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) problemsToSolve
---           E.exitSuccess
---         else do
+data Instruction = Instruction {
+  problemList :: [Int]
+  , all :: Bool
+  }
+
+instructionParser :: Parser Instruction
+instructionParser = Instruction
+                    <$> option auto
+                      ( long "problems"
+                        <> short 'p'
+                        <> metavar "PROBLEMS"
+                        <> help "list of problems to run" )
+                    <*> switch
+                      ( long "all"
+                        <> help "run all problems currently implemented in numerical order" )
+
+runProblems :: Instruction -> IO ()
+runProblems (Instruction ps a) | a == True  = do
+                                   showAnswers $ map (\x -> (x, problems Map.! x)) [1..21] 
+                               | otherwise = do
+                                   showAnswers $ map (\x -> (x, problems Map.! x)) ps
+  where
+    showAnswers as = do
+      mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) as
+      E.exitSuccess
+
+main = execParser opts >>= runProblems
+  where
+    opts = info (helper <*> instructionParser)
+           ( fullDesc
+             <> progDesc "Run the given project Euler problems"
+             <> header "euler - a runner for Project Euler solutions"
+           )
 
 
 numToStr :: Int -> String
