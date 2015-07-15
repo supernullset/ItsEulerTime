@@ -29,30 +29,40 @@ import qualified ZeroOneEight (main)
 import qualified ZeroOneNine (main)
 import qualified ZeroTwoZero (main)
 import qualified ZeroTwoOne (main)
+import qualified ZeroTwoTwo (main)
 
+data EulerAnswer = EulerAnswer {
+    number :: Int
+  , answer :: String
+  }
 
-problems = Map.fromList [ (1, show ZeroZeroOne.main)
-                        , (2, show ZeroZeroTwo.main)
-                        , (3, show ZeroZeroThree.main)
-                        , (4, show ZeroZeroFour.main)
-                        , (5, show ZeroZeroFive.main)
-                        , (6, show ZeroZeroSix.main)
-                        , (7, show ZeroZeroSeven.main)
-                        , (8, show ZeroZeroEight.main)
-                        , (9, show ZeroZeroNine.main)
-                        , (10, show ZeroOneZero.main)
-                        , (11, show ZeroOneOne.main)
-                        , (12, show ZeroOneTwo.main)
-                        , (13, show ZeroOneThree.main)
-                        , (14, show ZeroOneFour.main)
-                        , (15, show ZeroOneFive.main)
-                        , (16, show ZeroOneSix.main)
-                        , (17, show ZeroOneSeven.main)
-                        , (18, show ZeroOneEight.main)
-                        , (19, show ZeroOneNine.main)
-                        , (20, show ZeroTwoZero.main)
-                        , (21, show ZeroTwoOne.main)
+instance Show EulerAnswer where
+  show (EulerAnswer n a) = "Problem " ++ (numToStr n) ++ ": " ++ a
+
+problems = Map.fromList [ (1,   EulerAnswer 1   $ show ZeroZeroOne.main)
+                         , (2,  EulerAnswer 2   $ show ZeroZeroTwo.main)
+                         , (3,  EulerAnswer 3   $ show ZeroZeroThree.main)
+                         , (4,  EulerAnswer 4   $ show ZeroZeroFour.main)
+                         , (5,  EulerAnswer 5   $ show ZeroZeroFive.main)
+                         , (6,  EulerAnswer 6   $ show ZeroZeroSix.main)
+                         , (7,  EulerAnswer 7   $ show ZeroZeroSeven.main)
+                         , (8,  EulerAnswer 8   $ show ZeroZeroEight.main)
+                         , (9,  EulerAnswer 9   $ show ZeroZeroNine.main)
+                         , (10, EulerAnswer 10  $ show ZeroOneZero.main)
+                         , (11, EulerAnswer 11  $ show ZeroOneOne.main)
+                         , (12, EulerAnswer 12  $ show ZeroOneTwo.main)
+                         , (13, EulerAnswer 13  $ show ZeroOneThree.main)
+                         , (14, EulerAnswer 14  $ show ZeroOneFour.main)
+                         , (15, EulerAnswer 15  $ show ZeroOneFive.main)
+                         , (16, EulerAnswer 16  $ show ZeroOneSix.main)
+                         , (17, EulerAnswer 17  $ show ZeroOneSeven.main)
+                         , (18, EulerAnswer 18  $ show ZeroOneEight.main)
+                         , (19, EulerAnswer 19  $ show ZeroOneNine.main)
+                         , (20, EulerAnswer 20  $ show ZeroTwoZero.main)
+                         , (21, EulerAnswer 21  $ show ZeroTwoOne.main)
            ]
+
+ioProblems = Map.fromList [(22, ZeroTwoTwo.main)]
 
 data Instruction = Instruction {
   problemList :: [Int]
@@ -70,14 +80,16 @@ instructionParser = Instruction
                       ( long "all"
                         <> help "run all problems currently implemented in numerical order" )
 
+
+
 runProblems :: Instruction -> IO ()
 runProblems (Instruction ps a) | a == True  = do
-                                   showAnswers $ map (\x -> (x, problems Map.! x)) [1..21] 
+                                   showAnswers $ map (\x -> problems Map.! x) [1..21] 
                                | otherwise = do
-                                   showAnswers $ map (\x -> (x, problems Map.! x)) ps
+                                   showAnswers $ map (\x -> problems Map.! x) ps
   where
     showAnswers as = do
-      mapM_ (\(x,y) -> putStrLn $ "Problem " ++ (numToStr x) ++ ": " ++ y) as
+      mapM_ (\x -> putStrLn $ show x) as
       E.exitSuccess
 
 main = execParser opts >>= runProblems
