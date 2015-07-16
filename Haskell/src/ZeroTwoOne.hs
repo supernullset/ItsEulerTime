@@ -8,8 +8,9 @@ module ZeroTwoOne (main) where
 -- Evaluate the sum of all the amicable numbers under 10000.
 
 import Data.List (tails)
+import Lib as L
 
-sumProperDivisors n = sum [ x | x <- [1..(n-1)], n `mod` x == 0]
+sumProperDivisors n = sum $ L.properDivisors n
 
 amicableNumbers = [(220, 284)]
 

@@ -10,6 +10,7 @@ module Lib
        , squareSum
        , groupsOf
        , choose
+       , properDivisors
        ) where
 
 import Data.Char as C
@@ -46,3 +47,5 @@ groupsOf n xs = take n xs : groupsOf n ( tail xs )
 choose n 0 = 1
 choose 0 k = 0
 choose n k = choose (n-1) (k-1) * n `div` k
+
+properDivisors n = [ x | x <- [1..(n-1)], n `mod` x == 0]
