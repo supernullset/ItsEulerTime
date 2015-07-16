@@ -60,6 +60,7 @@ problems = Map.fromList [ (1,   EulerAnswer 1   $ show ZeroZeroOne.main)
                          , (19, EulerAnswer 19  $ show ZeroOneNine.main)
                          , (20, EulerAnswer 20  $ show ZeroTwoZero.main)
                          , (21, EulerAnswer 21  $ show ZeroTwoOne.main)
+                         , (22, EulerAnswer 22  $ show ZeroTwoTwo.main)
            ]
 
 ioProblems = Map.fromList [(22, ZeroTwoTwo.main)]
