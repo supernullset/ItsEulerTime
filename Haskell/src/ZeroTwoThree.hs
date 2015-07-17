@@ -8,5 +8,39 @@ module ZeroTwoThree (main) where
 
 -- Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 import Lib as L
+import qualified Data.IntSet as S (toAscList, fromAscList, member, map, filter, fold, IntSet(..))
+import qualified Data.Set as DS
 
-main = 0
+isPerfect :: Int -> Bool
+isPerfect n = n == (sum $ L.properDivisors n)
+
+isAbundant :: Int -> Bool
+isAbundant n = n < (sum $ L.properDivisors n)
+
+isDeficient :: Int -> Bool
+isDeficient n = n > (sum $ L.properDivisors n)
+
+abundantNumbers :: S.IntSet
+abundantNumbers = S.fromAscList $ filter isAbundant [12..28123]
+
+canidatesFirst :: Int -> [Int]
+-- potentially drop the <= and use <
+canidatesFirst n = takeWhile (\a -> a <= n) $ S.toAscList abundantNumbers
+
+canidatesSecond :: Int -> [Int]
+-- only consider the positive numbers from the subtractionp
+canidatesSecond n = filter (\x-> x > 0) $ map (\x -> n - x)  $ canidatesFirst n
+
+solutions :: Int -> DS.Set Bool
+solutions n = DS.fromList $ map (\x -> S.member x abundantNumbers) $ canidatesSecond n
+
+isAbundantSum :: Int -> Bool
+isAbundantSum n = DS.member True $ solutions n
+
+isNotAbundantSum :: Int -> Bool
+isNotAbundantSum n = not $ isAbundantSum n
+
+notAbundants = filter (\x-> isNotAbundantSum x) [1..28123]
+
+main :: Int
+main = foldl1 (+) $ notAbundants
