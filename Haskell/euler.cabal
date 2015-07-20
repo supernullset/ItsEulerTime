@@ -40,6 +40,7 @@ library
                      , ZeroTwoTwo
                      , ZeroTwoThree
                      , ZeroTwoFour
+                     , ZeroTwoFive
   build-depends:       base       >= 4.7 && < 5
                      , criterion  >= 1.1.0
                      , primes     >= 0.2.1
@@ -47,6 +48,7 @@ library
                      , parallel   >= 3.2
                      , time       >= 1.4.2
                      , containers >= 0.5.5
+                     , matrix     >= 0.2.0
   default-language:    Haskell2010
 
 executable bench
