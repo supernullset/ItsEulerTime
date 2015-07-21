@@ -17,23 +17,29 @@ module ZeroTwoSix (main) where
 
 -- Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 
-import Data.List (inits)
+import qualified Lib as L
+import Data.List (inits, maximumBy)
+import Data.Function (on)
 
-main = 0
+-- Did some research on decimal expansion, and it
+-- turns out that calculating the period of a rational is a
+-- known formula, the property is related to Euler's Toitent function
 
---decimalString :: a -> [String]
-decimalString n = inits $ drop 2 $ (show $ n)
+-- you only need to worry about testing the primes, because the
+-- constraints of the problem (periodic decimals that start AT the
+-- decimal), are only going to come up for prime denominators.
+-- I did lots of reading at the link below
+-- http://mathworld.wolfram.com/DecimalExpansion.html
+main = maximumBy (compare `on` snd) $ zip numbersToCheck $ map period numbersToCheck
+
+-- primes under 1000 (this is super hacky)
+-- I disregard 2,3,5 because the formula does not work for 2,5 and 1/3
+-- has a period of 1, eg. not the longest
+numbersToCheck = drop 3 $ take 168 L.primes
+
+-- Takes the DENOMINATOR of a rational, and finds the period.
+-- only works for numbers that do not have 2 or 5 as factors
+period :: Integer -> Integer
+period d = head $ filter (\x -> 1 == (10^x) `mod` d) [1..]
 
 
--- detectCycles  [] = []
-
---detectCycles :: String -> [Bool]
--- detectCycles :: String -> [Bool]
-
-isCycle :: String -> String -> Bool
-isCycle str sub = str == (sub ++ sub)
-
--- TODO: This should be abstractable to any type that is traversable/ordered
--- TODO: this should use the state monad?
---stringCycle :: String -> Maybe String
---stringCycle (x:xs) = Just xs
