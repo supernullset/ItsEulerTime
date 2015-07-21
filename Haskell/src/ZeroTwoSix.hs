@@ -17,4 +17,23 @@ module ZeroTwoSix (main) where
 
 -- Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 
+import Data.List (inits)
+
 main = 0
+
+--decimalString :: a -> [String]
+decimalString n = inits $ drop 2 $ (show $ n)
+
+
+-- detectCycles  [] = []
+
+--detectCycles :: String -> [Bool]
+-- detectCycles :: String -> [Bool]
+
+isCycle :: String -> String -> Bool
+isCycle str sub = str == (sub ++ sub)
+
+-- TODO: This should be abstractable to any type that is traversable/ordered
+-- TODO: this should use the state monad?
+--stringCycle :: String -> Maybe String
+--stringCycle (x:xs) = Just xs
