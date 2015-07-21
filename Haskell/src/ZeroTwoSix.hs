@@ -30,7 +30,7 @@ import Data.Function (on)
 -- decimal), are only going to come up for prime denominators.
 -- I did lots of reading at the link below
 -- http://mathworld.wolfram.com/DecimalExpansion.html
-main = maximumBy (compare `on` snd) $ zip numbersToCheck $ map period numbersToCheck
+main = fst $ maximumBy (compare `on` snd) $ zip numbersToCheck $ map period numbersToCheck
 
 -- primes under 1000 (this is super hacky)
 -- I disregard 2,3,5 because the formula does not work for 2,5 and 1/3

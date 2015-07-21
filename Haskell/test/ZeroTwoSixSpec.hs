@@ -7,5 +7,5 @@ main = hspec spec
 
 spec = do
   describe "main" $ do
-    it "must yield the correct answer of unknown" $
-      ZeroTwoSix.main `shouldBe` -1
+    it "must yield the correct answer of 983" $
+      ZeroTwoSix.main `shouldBe` 983
