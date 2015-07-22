@@ -34,6 +34,7 @@ import qualified ZeroTwoThree (main)
 import qualified ZeroTwoFour (main)
 import qualified ZeroTwoFive (main)
 import qualified ZeroTwoSix (main)
+import qualified ZeroTwoSeven (main)
 
 data EulerAnswer = EulerAnswer {
     number :: Int
@@ -69,6 +70,7 @@ problems = Map.fromList [ (1,   EulerAnswer 1   $ show ZeroZeroOne.main)
                          , (24, EulerAnswer 24  $ show ZeroTwoFour.main)
                          , (25, EulerAnswer 25  $ show ZeroTwoFive.main)
                          , (26, EulerAnswer 26  $ show ZeroTwoSix.main)
+                         , (27, EulerAnswer 27  $ show ZeroTwoSeven.main)
            ]
 
 ioProblems = Map.fromList [(22, ZeroTwoTwo.main)]
