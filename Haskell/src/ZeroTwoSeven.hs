@@ -16,6 +16,18 @@ module ZeroTwoSeven (main) where
 -- e.g. |11| = 11 and |−4| = 4
 -- Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
 
-main = 0
+import qualified Lib as L (isPrime)
+
+quadratic a b n = (n^2) + (a * n) + b
+
+-- builds tuples of generator functions and the product of coefficents
+generators = [(quadratic x y, x * y) | x <-[-999..999], y <- [-999..999]]
+
+-- calculates the length of initial primes yielded by a generator
+lengthPrimes l = length $ takeWhile L.isPrime l
+
+-- calculates the maximum length and returns the (length, product of coefficients)
+main = snd $ maximum [(lengthPrimes $ map (fst g) [0..], snd g) | g <- generators]
+
 
 

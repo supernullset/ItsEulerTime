@@ -1,11 +1,11 @@
 module ZeroTwoSevenSpec (main, spec) where
 
 import Test.Hspec
-import qualified ZeroTwoSeven (main, parMain)
+import qualified ZeroTwoSeven (main)
 
 main = hspec spec
 
 spec = do
   describe "main" $ do
-    it "must yield the correct answer of -1" $
-      ZeroOneOne.main `shouldBe` -1
+    it "must yield the correct answer of -59231" $
+      ZeroTwoSeven.main `shouldBe` (-59231)
