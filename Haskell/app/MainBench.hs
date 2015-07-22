@@ -3,10 +3,10 @@
 import Lib
 import Criterion.Main
 
-import Problems (problemMap, lookupAnswer, numToStr)
+import Problems (problemMap, lookupAnswer)
 
 main = defaultMain [
-   bgroup "Problems" [ bench (numToStr 1) $ whnf (\x -> lookupAnswer 1) ()
+   bgroup "Problems" [ bench "001" $ whnf (\x -> lookupAnswer 1) ()
                      , bench "002" $ whnf (\x -> lookupAnswer 2) ()
                      , bench "003" $ whnf (\x -> lookupAnswer 3) ()
                      , bench "004" $ whnf (\x -> lookupAnswer 4) ()

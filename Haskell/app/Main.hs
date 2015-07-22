@@ -10,7 +10,6 @@ import Problems (problemMap, lookupAnswer)
 data Instruction = Instruction {
   problemList :: [Int]
   , all :: Bool
-  , benchmark :: Bool
   }
 
 instructionParser :: Parser Instruction
@@ -23,16 +22,12 @@ instructionParser = Instruction
                     <*> switch
                       ( long "all"
                         <> help "run all problems currently implemented in numerical order" )
-                    <*> switch
-                      ( long "mode"
-                        <> short 'b'
-                        <> help "excute solutions or benchmarks" )
 
 runProblems :: Instruction -> IO ()
-runProblems (Instruction ps a m) | a == True  = do
-                                     showAnswers $ map lookupAnswer [1..21]
-                                 | otherwise = do
-                                     showAnswers $ map lookupAnswer ps
+runProblems (Instruction ps a) | a == True  = do
+                                   showAnswers $ map lookupAnswer [1..21]
+                               | otherwise = do
+                                   showAnswers $ map lookupAnswer ps
   where
     showAnswers as = do
       mapM_ (\x -> putStrLn $ show x) as
