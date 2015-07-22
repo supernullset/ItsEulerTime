@@ -5,7 +5,7 @@ import System.Environment as Sys
 import System.Exit as E
 import Options.Applicative
 
-import Problems (problemMap, EulerAnswer(..), lookupProblem)
+import Problems (problemMap, lookupAnswer)
 
 data Instruction = Instruction {
   problemList :: [Int]
@@ -25,9 +25,9 @@ instructionParser = Instruction
 
 runProblems :: Instruction -> IO ()
 runProblems (Instruction ps a) | a == True  = do
-                                   showAnswers $ map lookupProblem [1..21]
+                                   showAnswers $ map lookupAnswer [1..21]
                                | otherwise = do
-                                   showAnswers $ map lookupProblem ps
+                                   showAnswers $ map lookupAnswer ps
   where
     showAnswers as = do
       mapM_ (\x -> putStrLn $ show x) as
