@@ -3,6 +3,7 @@ module Problems (
   , Answer(..)
   , lookupAnswer
   , numToStr
+  , solvedProblems
   ) where
 
 import qualified Data.Map.Lazy as Map
@@ -50,6 +51,9 @@ numToStr a = printf "%03d" a
 
 lookupAnswer :: Int -> Answer
 lookupAnswer p = problemMap Map.! p
+
+solvedProblems :: [Int]
+solvedProblems = [1..27]
 
 problemMap = Map.fromList [ (1,  Answer 1   $ show ZeroZeroOne.main)
                           , (2,  Answer 2   $ show ZeroZeroTwo.main)
