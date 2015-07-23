@@ -39,6 +39,7 @@ import qualified ZeroTwoSix (main)
 import qualified ZeroTwoSeven (main)
 import qualified ZeroTwoEight (main)
 import qualified ZeroTwoNine (main)
+import qualified ZeroThreeZero (main)
 
 data Answer = Answer {
     number :: Int
@@ -88,4 +89,5 @@ problemList = [ (1,  Answer 1   $ show ZeroZeroOne.main)
                , (27, Answer 27  $ show ZeroTwoSeven.main)
                , (28, Answer 28  $ show ZeroTwoEight.main)
                , (29, Answer 29  $ show ZeroTwoNine.main)
+               , (30, Answer 30  $ show ZeroThreeZero.main)
                ]
