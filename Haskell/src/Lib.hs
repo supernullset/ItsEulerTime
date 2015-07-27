@@ -13,10 +13,13 @@ module Lib
        , properDivisors
        , factorial
        , digits
+       , rotations
+       , intStringToList
        ) where
 
 import Data.Char as C
 import qualified Data.Numbers.Primes as P
+import qualified Data.List as L (tails, inits) 
 
 isPrime = P.isPrime
 
@@ -56,3 +59,9 @@ factorial n = foldr (*) 1 [1..n]
 
 digits :: Int -> [Int]
 digits n= map digitToInt $ show n
+
+rotations :: [a] -> [[a]]
+rotations xs = zipWith (++) (L.tails xs) (L.inits xs)
+
+intStringToList :: String -> [Int]
+intStringToList = map C.digitToInt
