@@ -14,7 +14,13 @@ rots n = init $ map (\c -> read (foldl (\acc x -> acc ++ (show x)) "" c) :: Inte
 
 isCircularPrime n = [True] == (nub $ map L.isPrime (rots n))
 
+containsTwoOrFive n = (elem 2 (digits n)) || (elem 5 (digits n))
+
 uLimit = 1000000
 
+-- search space can be reduced by noting that canidates cannot
+-- contain an even number or 5, since such a digit will be at the end
+-- of the number
 main = length [() | x <- [1..uLimit]
+                  , False == containsTwoOrFive x
                   , True == (isCircularPrime x)]
