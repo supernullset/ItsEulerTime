@@ -11,6 +11,7 @@ module Lib
        , groupsOf
        , choose
        , properDivisors
+       , factorial
        ) where
 
 import Data.Char as C
@@ -49,3 +50,5 @@ choose 0 k = 0
 choose n k = choose (n-1) (k-1) * n `div` k
 
 properDivisors n = [ x | x <- [1..(n-1)], n `mod` x == 0]
+
+factorial n = foldr (*) 1 [1..n]
