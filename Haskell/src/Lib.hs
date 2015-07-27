@@ -12,6 +12,7 @@ module Lib
        , choose
        , properDivisors
        , factorial
+       , digits
        ) where
 
 import Data.Char as C
@@ -52,3 +53,6 @@ choose n k = choose (n-1) (k-1) * n `div` k
 properDivisors n = [ x | x <- [1..(n-1)], n `mod` x == 0]
 
 factorial n = foldr (*) 1 [1..n]
+
+digits :: Int -> [Int]
+digits n= map digitToInt $ show n

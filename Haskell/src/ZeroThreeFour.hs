@@ -6,11 +6,10 @@ module ZeroThreeFour (main) where
 import Data.Char (digitToInt)
 import Lib as L
 
-digits n= map digitToInt $ show n
 -- The reason that 7*9! is the upper bound is in the number you
 -- posted. An 8-digit solution is impossible, since the
 -- largest possible sum of 8 factorials is 8*9! = 2903040, a
 -- 7 digit number. So every 8-digit number must be greater
 -- than it’s sum of factorials.
-main = sum [ n | n <- [3..1000000], n == (sum $ map L.factorial (digits n))]
+main = sum [ n | n <- [3..1000000], n == (sum $ map L.factorial (L.digits n))]
 
