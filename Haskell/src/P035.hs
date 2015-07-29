@@ -1,4 +1,9 @@
-module P035 (main) where
+module P035 (
+    main
+  , rots
+  , isCircularPrime
+  , containsTwoOrFive
+  ) where
 
 -- The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
 
@@ -6,7 +11,7 @@ module P035 (main) where
 
 -- How many circular primes are there below one million?
 
-import Lib as L
+import qualified Lib as L
 import Data.List (init, nub)
 
 -- TODO: This can probably get cleaned up very nicely
@@ -14,13 +19,17 @@ rots n = init $ map (\c -> read (foldl (\acc x -> acc ++ (show x)) "" c) :: Inte
 
 isCircularPrime n = [True] == (nub $ map L.isPrime (rots n))
 
-containsTwoOrFive n = (elem 2 (digits n)) || (elem 5 (digits n))
+containsTwoOrFive n = (elem 2 (L.digits n)) || (elem 5 (L.digits n))
 
 uLimit = 1000000
 
 -- search space can be reduced by noting that canidates cannot
 -- contain an even number or 5, since such a digit will be at the end
 -- of the number
-main = length [() | x <- [1..uLimit]
-                  , False == containsTwoOrFive x
-                  , True == (isCircularPrime x)]
+-- You have to add two because the search limitation excludes 3 and 5,
+-- which are some of the first matching condiditions. I
+-- figure that the manual addition is better than the
+-- "prettieer" logic only solution
+main = 2 + length [() | x <- [1..uLimit]
+                      , False == (containsTwoOrFive x)
+                      , True == (isCircularPrime x)]
