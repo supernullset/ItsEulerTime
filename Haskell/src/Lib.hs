@@ -3,11 +3,8 @@ module Lib
          isPrime
        , factors
        , isPalendrome
-       , multiples
        , primes
        , primeFactors
-       , sumSquare
-       , squareSum
        , groupsOf
        , choose
        , properDivisors
@@ -15,11 +12,13 @@ module Lib
        , digits
        , rotations
        , intStringToList
+       , rots
+       , isCircularPrime
        ) where
 
 import Data.Char as C
 import qualified Data.Numbers.Primes as P
-import qualified Data.List as L (tails, inits) 
+import qualified Data.List as L (tails, inits, init, nub)
 
 -- determines if a number is Prime
 isPrime :: Integer -> Bool
@@ -33,23 +32,6 @@ factors n = [ x | x <- [1..n], mod n x == 0]
 isPalendrome :: String -> Bool
 isPalendrome x | x == reverse x = True
                | otherwise = False
-
--- determines multiples of xy for all x,y < 1000
--- TODO: why is this here?
-multiples :: [String]
-multiples = [ show $ fromIntegral x*y | x <- [1..999], y <- [1..999]]
-
--- determines the sum of the square or all numebrs in a list
-sumSquare :: [Int] -> Int
-sumSquare [] = 0
-sumSquare [x] = x * x
-sumSquare (x:xs) = sumSquare [x] + sumSquare xs
-
---determines the square of the sum of all numbers in a list
-squareSum :: [Int] -> Int
-squareSum [] = 0
-squareSum [x] = x * x
-squareSum (x:xs) = (x + sum xs) ^ 2
 
 -- determines the prime factors of a number
 primeFactors :: Integer -> [Integer]
@@ -88,3 +70,8 @@ rotations xs = zipWith (++) (L.tails xs) (L.inits xs)
 -- takes an ints string, and turns it into a list of ints
 intStringToList :: String -> [Int]
 intStringToList = map C.digitToInt
+
+-- TODO: This can probably get cleaned up very nicely
+rots n = init $ map (\c -> read (foldl (\acc x -> acc ++ (show x)) "" c) :: Integer) $ rotations (intStringToList $ show n)
+
+isCircularPrime n = [True] == (L.nub $ map isPrime (rots n))

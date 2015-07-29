@@ -6,14 +6,6 @@ import qualified P035
 main = hspec spec
 
 spec = do
-  describe "rots" $ do
-    it "must properly determine rotations" $ do
-      P035.rots 197 `shouldBe` [197, 971, 719]
-
-  describe "isCircularPrime" $ do
-    it "must properly determine if is Circular Prime" $ do
-      P035.isCircularPrime 197 `shouldBe` True
-
   describe "containsTwoOrFive" $ do
     it "must properly determine if 1 contains 2 or 5" $ do
       P035.containsTwoOrFive 1 `shouldBe` False

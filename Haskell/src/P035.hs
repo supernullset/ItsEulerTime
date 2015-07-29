@@ -1,7 +1,5 @@
 module P035 (
     main
-  , rots
-  , isCircularPrime
   , containsTwoOrFive
   ) where
 
@@ -12,12 +10,6 @@ module P035 (
 -- How many circular primes are there below one million?
 
 import qualified Lib as L
-import Data.List (init, nub)
-
--- TODO: This can probably get cleaned up very nicely
-rots n = init $ map (\c -> read (foldl (\acc x -> acc ++ (show x)) "" c) :: Integer) $ L.rotations (L.intStringToList $ show n)
-
-isCircularPrime n = [True] == (nub $ map L.isPrime (rots n))
 
 containsTwoOrFive n = (elem 2 (L.digits n)) || (elem 5 (L.digits n))
 
@@ -32,4 +24,4 @@ uLimit = 1000000
 -- "prettieer" logic only solution
 main = 2 + length [() | x <- [1..uLimit]
                       , False == (containsTwoOrFive x)
-                      , True == (isCircularPrime x)]
+                      , True == (L.isCircularPrime x)]

@@ -14,4 +14,17 @@ Hence the difference between the sum of the squares of the first ten natural num
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 -}
 main :: Int
-main = L.squareSum [1..100] - L.sumSquare [1..100]
+main = squareSum [1..100] - sumSquare [1..100]
+
+-- determines the sum of the square or all numebrs in a list
+sumSquare :: [Int] -> Int
+sumSquare [] = 0
+sumSquare [x] = x * x
+sumSquare (x:xs) = sumSquare [x] + sumSquare xs
+
+--determines the square of the sum of all numbers in a list
+squareSum :: [Int] -> Int
+squareSum [] = 0
+squareSum [x] = x * x
+squareSum (x:xs) = (x + sum xs) ^ 2
+
