@@ -10,7 +10,7 @@ import qualified Data.Map.Lazy as Map
 import Text.Printf (printf)
 
 -- problems
-import qualified ZeroZeroOne (main)
+import qualified P001 (main)
 import qualified ZeroZeroTwo (main)
 import qualified ZeroZeroThree (main)
 import qualified ZeroZeroFour (main)
@@ -65,7 +65,7 @@ solvedProblems = [1..(length problemList)]
 
 problemMap = Map.fromList problemList
 
-problemList = [ (1,  Answer 1   $ show ZeroZeroOne.main)
+problemList = [ (1,  Answer 1   $ show P001.main)
                , (2,  Answer 2   $ show ZeroZeroTwo.main)
                , (3,  Answer 3   $ show ZeroZeroThree.main)
                , (4,  Answer 4   $ show ZeroZeroFour.main)

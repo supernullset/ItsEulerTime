@@ -1,4 +1,4 @@
-module ZeroZeroOne (
+module P001 (
     main
 --  , parallelMain
   ) where
