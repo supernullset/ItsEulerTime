@@ -14,11 +14,13 @@ module Lib
        , intStringToList
        , rots
        , isCircularPrime
+       , intToBinary
        ) where
 
 import Data.Char as C
 import qualified Data.Numbers.Primes as P
 import qualified Data.List as L (tails, inits, init, nub)
+import qualified Numeric as N (showIntAtBase)
 
 -- determines if a number is Prime
 isPrime :: Integer -> Bool
@@ -75,3 +77,11 @@ intStringToList = map C.digitToInt
 rots n = init $ map (\c -> read (foldl (\acc x -> acc ++ (show x)) "" c) :: Integer) $ rotations (intStringToList $ show n)
 
 isCircularPrime n = [True] == (L.nub $ map isPrime (rots n))
+
+-- converts an int to binary representation with leading 0s removed
+-- the final "" is important because the rest of the statment is of
+-- type ShowS (type ShowS = String -> String). Apparently this allows
+-- for quick and easy prepention
+intToBinary :: Int -> Integer
+intToBinary n = read $ (N.showIntAtBase 2 intToDigit) n ""
+
