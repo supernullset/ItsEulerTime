@@ -53,6 +53,7 @@ library
                      , P034
                      , P035
                      , P036
+                     , P037
   build-depends:       base       >= 4.7 && < 5
                      , criterion  >= 1.1.0
                      , primes     >= 0.2.1
