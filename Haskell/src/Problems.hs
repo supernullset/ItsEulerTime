@@ -1,8 +1,10 @@
 module Problems (
-    problemMap
-  , Answer(..)
+    Answer(..)
   , lookupAnswer
   , numToStr
+  , numberOfProblems
+  , problemMap
+  , problemList
   , solvedProblems
   ) where
 
@@ -47,6 +49,7 @@ import qualified P034 (main)
 import qualified P035 (main)
 import qualified P036 (main)
 import qualified P037 (main)
+import qualified P038 (main)
 
 data Answer = Answer {
     number :: Int
@@ -65,7 +68,10 @@ lookupAnswer p = problemMap Map.! p
 solvedProblems :: [Int]
 solvedProblems = [1..(length problemList)]
 
+problemMap :: Map.Map Int Answer
 problemMap = Map.fromList problemList
+
+numberOfProblems = length problemList
 
 problemList = [  (1,  Answer 1   $ show P001.main)
                , (2,  Answer 2   $ show P002.main)
@@ -103,5 +109,6 @@ problemList = [  (1,  Answer 1   $ show P001.main)
                , (34, Answer 34  $ show P034.main)
                , (35, Answer 35  $ show P035.main)
                , (36, Answer 36  $ show P036.main)
-               , (37, Answer 37  $ show P037.main)                 
+               , (37, Answer 37  $ show P037.main)
+               , (38, Answer 38  $ show P038.main)
                ]
