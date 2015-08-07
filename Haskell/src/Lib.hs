@@ -12,6 +12,7 @@ module Lib
        , factorial
        , digits
        , rotations
+       , isNPandigital
        , intStringToList
        , rots
        , isCircularPrime
@@ -20,7 +21,7 @@ module Lib
 
 import Data.Char as C
 import qualified Data.Numbers.Primes as P
-import qualified Data.List as L (tails, inits, init, nub)
+import qualified Data.List as L (tails, inits, init, nub, sort)
 import qualified Numeric as N (showIntAtBase)
 
 -- determines if a number is Prime
@@ -34,6 +35,13 @@ isCoprime a b = 1 == gcd a b
 -- determines factors of an integer
 factors :: Integer -> [Integer]
 factors n = [ x | x <- [1..n], mod n x == 0]
+
+isNPandigital :: Integer -> Bool
+isNPandigital n = stringDigits == L.sort (show n)
+  where
+    stringN = show n
+    digits = [1..length stringN]
+    stringDigits = concatMap (show) digits
 
 -- determines if string is palendrome such as "121"
 isPalendrome :: String -> Bool
