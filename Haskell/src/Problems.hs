@@ -51,6 +51,7 @@ import qualified P036 (main)
 import qualified P037 (main)
 import qualified P038 (main)
 import qualified P039 (main)
+import qualified P040 (main)
 
 data Answer = Answer {
     number :: Int
@@ -113,4 +114,5 @@ problemList = [  (1,  Answer 1   $ show P001.main)
                , (37, Answer 37  $ show P037.main)
                , (38, Answer 38  $ show P038.main)
                , (39, Answer 39  $ show P039.main)
+               , (40, Answer 40  $ show P040.main)
                ]
