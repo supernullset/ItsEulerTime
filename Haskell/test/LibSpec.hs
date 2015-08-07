@@ -10,6 +10,10 @@ spec = do
     it "must determine if 3 is prime" $
       isPrime 3 `shouldBe` True
 
+  describe "isCoprime" $ do
+    it "must determine if 14,15 are coprime" $
+      isCoprime 14 15 `shouldBe` True
+
   describe "factors" $ do
     it "must determine factors of 5" $
       factors 5 `shouldBe` [1,5]

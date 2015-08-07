@@ -1,6 +1,7 @@
 module Lib
        (
          isPrime
+       , isCoprime
        , factors
        , isPalendrome
        , primes
@@ -25,6 +26,10 @@ import qualified Numeric as N (showIntAtBase)
 -- determines if a number is Prime
 isPrime :: Integer -> Bool
 isPrime = P.isPrime
+
+-- determines if numbers are coprime
+isCoprime :: Integer -> Integer -> Bool
+isCoprime a b = 1 == gcd a b
 
 -- determines factors of an integer
 factors :: Integer -> [Integer]
