@@ -61,4 +61,5 @@ phrase n | length word == 1 = getNumber n
          | length word == 3 = (getNumber (digitToInt $ head word)) ++ "hundred" ++ withAnd (read (tail word) :: Int)
   where word = show n
 
-main = (sum $ map (\x -> length (phrase x)) [1..999]) + (length "onethousand")
+main :: Int
+main = (sum $ map (\x -> length (phrase x)) [1..999]) + 12 --(length "onethousand")
