@@ -8,4 +8,4 @@ main = hspec spec
 spec = do
   describe "main" $ do
     it "must yield the correct answer of 872187" $
-      P036.main `shouldBe` 8721873
+      P036.main `shouldBe` 872187

@@ -62,4 +62,4 @@ phrase n | length word == 1 = getNumber n
   where word = show n
 
 main :: Int
-main = (sum $ map (\x -> length (phrase x)) [1..999]) + 12 --(length "onethousand")
+main = (sum $ map (\x -> length (phrase x)) [1..999]) + 11 --(length "onethousand")
