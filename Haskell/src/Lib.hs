@@ -7,6 +7,7 @@ module Lib
        , primes
        , primeFactors
        , groupsOf
+       , groupIn
        , choose
        , properDivisors
        , factorial
@@ -43,6 +44,10 @@ isNPandigital n = stringDigits == L.sort (show n)
     digits = [1..length stringN]
     stringDigits = concatMap (show) digits
 
+digitalPandigitals :: [Integer]
+digitalPandigitals = filter (pandigital) [1234567890..9876543210]
+  where pandigital n = "0123456789" == (L.sort $ show n)
+
 -- determines if string is palendrome such as "121"
 isPalendrome :: String -> Bool
 isPalendrome x | x == reverse x = True
@@ -56,10 +61,18 @@ primeFactors = P.primeFactors
 primes :: [Integer]
 primes = P.primes
 
--- returns groups of n elements from a list
+-- returns groups of n elements from a list, every combination 1 by 1,
+-- keeps stragglers where length xs < n
 groupsOf :: Int -> [a] -> [[a]]
 groupsOf _ [] = []
 groupsOf n xs = take n xs : groupsOf n ( tail xs )
+
+
+-- returns groups of n elements from a list, n by n step, excludes stragglers
+groupIn :: Int -> [a] -> [[a]]
+groupIn _ [] = []
+groupIn n xs | (length xs) >= n = take n xs : groupsOf n ( drop n xs )
+             | otherwise = []
 
 -- returns binomial coefficents
 choose n 0 = 1
