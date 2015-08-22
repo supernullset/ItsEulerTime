@@ -12,6 +12,7 @@ module Lib
        , properDivisors
        , factorial
        , digits
+       , hasDuplicateDigits
        , rotations
        , isNPandigital
        , intStringToList
@@ -65,8 +66,9 @@ primes = P.primes
 -- keeps stragglers where length xs < n
 groupsOf :: Int -> [a] -> [[a]]
 groupsOf _ [] = []
-groupsOf n xs = take n xs : groupsOf n ( tail xs )
-
+groupsOf n xs | length value >= n = value : groupsOf n ( tail xs )
+              | otherwise = []
+  where value = take n xs
 
 -- returns groups of n elements from a list, n by n step, excludes stragglers
 groupIn :: Int -> [a] -> [[a]]
@@ -90,6 +92,10 @@ factorial n = foldr (*) 1 [1..n]
 -- returns the digits in a number
 digits :: Integer -> [Integer]
 digits n = map (fromIntegral .digitToInt) $ show n
+
+-- determines if a number has duplicate digits
+hasDuplicateDigits :: (Num a, Show a) => a -> Bool
+hasDuplicateDigits n = L.nub (show n) /= (show n)
 
 -- returns the rotations of a list, eg [1,2] -> [[1,2],[2,1]]
 rotations :: [a] -> [[a]]

@@ -40,8 +40,8 @@ spec = do
       take 5 primes `shouldBe` [2,3,5,7,11]
 
   describe "groupsOf" $ do
-    it "must take groups of evenly divisible lists" $
-      groupsOf 2 [1..4] `shouldBe` [[1,2], [2,3], [3,4], [4]]
+    it "must take groups of evenly divisible lists with no hanging groups" $
+      groupsOf 2 [1..4] `shouldBe` [[1,2], [2,3], [3,4]]
 
   describe "choose" $ do
     it "must return the correct binomial coefficient of 1 0" $
@@ -64,6 +64,13 @@ spec = do
   describe "digits" $ do
     it "must return the digits of an integer" $
       digits 1234 `shouldBe` [1,2,3,4]
+
+  describe "hasDuplicateDigits" $ do
+    it "must determine is an integer has unique digits" $
+      hasDuplicateDigits 1234 `shouldBe` False
+
+    it "must determine is an integer has duplicate digits" $
+      hasDuplicateDigits 111 `shouldBe` True
 
   describe "rotations" $ do
     it "must return the rotations of a list of numbers" $
