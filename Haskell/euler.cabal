@@ -60,6 +60,7 @@ library
                      , P041
                      , P042
                      , P043
+                     , P044
   build-depends:       base       >= 4.7 && < 5
                      , criterion  >= 1.1.0
                      , primes     >= 0.2.1

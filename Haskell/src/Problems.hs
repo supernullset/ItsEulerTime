@@ -52,6 +52,7 @@ import qualified P040 (main)
 import qualified P041 (main)
 import qualified P042 (main)
 import qualified P043 (main)
+import qualified P044 (main)
 
 import qualified Data.Map.Lazy as Map
 import Text.Printf (printf)
@@ -121,6 +122,7 @@ problems = [ show P001.main
            , show P041.main
            , show P042.main
            , show P043.main
+           , show P044.main
            ]
 
 problemList = map (\(i, a) -> (i, Answer i a)) $ zip [1..] problems
