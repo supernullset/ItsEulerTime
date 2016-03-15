@@ -1,4 +1,4 @@
-module P031 (main) where
+module P031 (solution) where
 
 -- In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
 
@@ -21,4 +21,4 @@ combinationsGiven target combinations@(c:cs)
 
 coinCombinations n = combinationsGiven n coinage
 
-main = length $ coinCombinations 200
+solution = length $ coinCombinations 200

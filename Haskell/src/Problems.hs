@@ -9,50 +9,51 @@ module Problems (
   ) where
 
 -- problems
-import qualified P001 (main)
-import qualified P002 (main)
-import qualified P003 (main)
-import qualified P004 (main)
-import qualified P005 (main)
-import qualified P006 (main)
-import qualified P007 (main)
-import qualified P008 (main)
-import qualified P009 (main)
-import qualified P010 (main)
-import qualified P011 (main)
-import qualified P012 (main)
-import qualified P013 (main)
-import qualified P014 (main)
-import qualified P015 (main)
-import qualified P016 (main)
-import qualified P017 (main)
-import qualified P018 (main)
-import qualified P019 (main)
-import qualified P020 (main)
-import qualified P021 (main)
-import qualified P022 (main)
-import qualified P023 (main)
-import qualified P024 (main)
-import qualified P025 (main)
-import qualified P026 (main)
-import qualified P027 (main)
-import qualified P028 (main)
-import qualified P029 (main)
-import qualified P030 (main)
-import qualified P031 (main)
-import qualified P032 (main)
-import qualified P033 (main)
-import qualified P034 (main)
-import qualified P035 (main)
-import qualified P036 (main)
-import qualified P037 (main)
-import qualified P038 (main)
-import qualified P039 (main)
-import qualified P040 (main)
-import qualified P041 (main)
-import qualified P042 (main)
-import qualified P043 (main)
-import qualified P044 (main)
+import P001
+import P002
+import P003
+import P004
+import P005
+import P006
+import P007
+import P008
+import P009
+import P010
+import P011
+import P012
+import P013
+import P014
+import P015
+import P016
+import P017
+import P018
+import P019
+import P020
+import P021
+import P022
+import P023
+import P024
+import P025
+import P026
+import P027
+import P028
+import P029
+import P030
+import P031
+import P032
+import P033
+import P034
+import P035
+import P036
+import P037
+import P038
+import P039
+import P040
+import P041
+import P042
+import P043
+import P044
+import P045
 
 import qualified Data.Map.Lazy as Map
 import Text.Printf (printf)
@@ -79,50 +80,51 @@ problemMap = Map.fromList problemList
 
 numberOfProblems = length problemList
 
-problems = [ show P001.main
-           , show P002.main
-           , show P003.main
-           , show P004.main
-           , show P005.main
-           , show P006.main
-           , show P007.main
-           , show P008.main
-           , show P009.main
-           , show P010.main
-           , show P011.main
-           , show P012.main
-           , show P013.main
-           , show P014.main
-           , show P015.main
-           , show P016.main
-           , show P017.main
-           , show P018.main
-           , show P019.main
-           , show P020.main
-           , show P021.main
-           , show P022.main
-           , show P023.main
-           , show P024.main
-           , show P025.main
-           , show P026.main
-           , show P027.main
-           , show P028.main
-           , show P029.main
-           , show P030.main
-           , show P031.main
-           , show P032.main
-           , show P033.main
-           , show P034.main
-           , show P035.main
-           , show P036.main
-           , show P037.main
-           , show P038.main
-           , show P039.main
-           , show P040.main
-           , show P041.main
-           , show P042.main
-           , show P043.main
-           , show P044.main
+problems = [ show P001.solution
+           , show P002.solution
+           , show P003.solution
+           , show P004.solution
+           , show P005.solution
+           , show P006.solution
+           , show P007.solution
+           , show P008.solution
+           , show P009.solution
+           , show P010.solution
+           , show P011.solution
+           , show P012.solution
+           , show P013.solution
+           , show P014.solution
+           , show P015.solution
+           , show P016.solution
+           , show P017.solution
+           , show P018.solution
+           , show P019.solution
+           , show P020.solution
+           , show P021.solution
+           , show P022.solution
+           , show P023.solution
+           , show P024.solution
+           , show P025.solution
+           , show P026.solution
+           , show P027.solution
+           , show P028.solution
+           , show P029.solution
+           , show P030.solution
+           , show P031.solution
+           , show P032.solution
+           , show P033.solution
+           , show P034.solution
+           , show P035.solution
+           , show P036.solution
+           , show P037.solution
+           , show P038.solution
+           , show P039.solution
+           , show P040.solution
+           , show P041.solution
+           , show P042.solution
+           , show P043.solution
+           , show P044.solution
+           , show P045.solution
            ]
 
 problemList = map (\(i, a) -> (i, Answer i a)) $ zip [1..] problems

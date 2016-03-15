@@ -1,4 +1,4 @@
-module P009 (main) where
+module P009 (solution) where
 
 {-
 problem 9:
@@ -30,7 +30,7 @@ triplets l = [[a,b,c] | m <- [2..limit],
                         a+b+c==l]
     where limit = floor . sqrt . fromIntegral $ l
 
-main = (product . head . triplets $ 1000)
+solution = (product . head . triplets $ 1000)
 --  let triplet = [ [a,b,c] | a <- [0..1000], b <-[0..1000], c <- [0..1000], pythagTest (a,b,c) == True, (a+b+c) == 1000]
 
 

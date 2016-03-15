@@ -1,4 +1,4 @@
-module P043 (main) where
+module P043 (solution) where
 
 -- The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.
 
@@ -42,5 +42,5 @@ generatePandigitals :: [Int] -> [String] -> [String]
 generatePandigitals [] acc = acc
 generatePandigitals (x:xs) acc = generatePandigitals xs $ concatMap (generator x) acc
 
-main :: Integer
-main = sum $ map read $ generatePandigitals [17, 13, 11, 7, 5, 3, 2, 1] [""]
+solution :: Integer
+solution = sum $ map read $ generatePandigitals [17, 13, 11, 7, 5, 3, 2, 1] [""]

@@ -1,4 +1,4 @@
-module P038 (main) where
+module P038 (solution) where
 
 -- Take the number 192 and multiply it by each of 1, 2, and 3:
 
@@ -45,5 +45,5 @@ products = map (applyToRange . concatenatedProduct) [9000..9999]
   where
     applyToRange f = f [1, 2]
 
-main :: Integer
-main = read $ last $ filter isPandigital products
+solution :: Integer
+solution = read $ last $ filter isPandigital products

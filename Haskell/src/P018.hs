@@ -1,4 +1,4 @@
-module P018 (main) where
+module P018 (solution) where
 
 -- By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 
@@ -47,7 +47,7 @@ triangle = [
   , [04, 62, 98, 27, 23, 09, 70, 98, 73, 93, 38, 53, 60, 04, 23]
   ]
 
-main = head $ foldr1 findPath triangle
+solution = head $ foldr1 findPath triangle
   where
     addToPath counter a b = counter + max a b
     findPath xs ys = zipWith3 addToPath xs ys $ tail ys

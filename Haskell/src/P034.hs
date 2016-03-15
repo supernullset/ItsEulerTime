@@ -1,4 +1,4 @@
-module P034 (main) where
+module P034 (solution) where
 
 -- 145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 -- Find the sum of all numbers which are equal to the sum of the factorial of their digits.
@@ -11,5 +11,5 @@ import Lib as L
 -- largest possible sum of 8 factorials is 8*9! = 2903040, a
 -- 7 digit number. So every 8-digit number must be greater
 -- than it’s sum of factorials.
-main = sum [ n | n <- [3..1000000], n == (sum $ map L.factorial (L.digits n))]
+solution = sum [ n | n <- [3..1000000], n == (sum $ map L.factorial (L.digits n))]
 

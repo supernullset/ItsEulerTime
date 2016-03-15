@@ -1,4 +1,4 @@
-module P029 (main) where
+module P029 (solution) where
 
 -- Consider all integer combinations of a^b for 2 ≤ a ≤ 5 and 2 ≤ b ≤ 5:
 
@@ -14,5 +14,5 @@ module P029 (main) where
 
 import Data.Set (size, fromList)
 
-main = size $ fromList [x^y | x <- [2..100], y <- [2..100]]
+solution = size $ fromList [x^y | x <- [2..100], y <- [2..100]]
 

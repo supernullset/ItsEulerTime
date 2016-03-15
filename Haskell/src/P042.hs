@@ -1,4 +1,4 @@
-module P042 (main) where
+module P042 (solution) where
 
 -- The nth term of the sequence of triangle numbers is given by, tn = ½n(n+1); so the first ten triangle numbers are:
 
@@ -25,10 +25,10 @@ wordToValue (x:xs) = (findIndex x) + wordToValue xs
 isATriangle :: Int -> Bool
 isATriangle i =  i `elem` triangleNumbers
 
-solution = do
+sol = do
   rawWords <- readFile "src/extras/042.txt"
   let words = read $ "["++rawWords++"]" :: [String]
   let s = length $ filter (isATriangle . wordToValue) words
   return s
 
-main = unsafePerformIO solution
+solution = unsafePerformIO sol

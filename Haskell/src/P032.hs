@@ -1,4 +1,4 @@
-module P032 (main) where
+module P032 (solution) where
 
 -- We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.
 
@@ -25,7 +25,7 @@ isPandigital n | length n /= 9 = False
 -- the products is 9876
 -- this implies that the sum of length of m and mp are 5, meaning the
  -- search space for factors is 1-4 and 1-2 digits respectively
-main = sum $ nub $ map (\(_,_,p) -> p) [(m, mp, m*mp) | m <-[1..9876]
+solution = sum $ nub $ map (\(_,_,p) -> p) [(m, mp, m*mp) | m <-[1..9876]
                                                       , mp <-[1..99]
                                                       , m*mp <= 9876
                                                       , True == (isPandigital $ (show m) ++ (show mp) ++ (show (m*mp)))]

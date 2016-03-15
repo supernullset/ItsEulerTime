@@ -1,4 +1,4 @@
-module P023 (main) where
+module P023 (solution) where
 
 -- A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
 
@@ -42,5 +42,5 @@ isNotAbundantSum n = not $ isAbundantSum n
 
 notAbundants = filter (\x-> isNotAbundantSum x) [1..28123]
 
-main :: Int
-main = foldl1 (+) $ notAbundants
+solution :: Int
+solution = foldl1 (+) $ notAbundants

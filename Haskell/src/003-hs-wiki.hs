@@ -10,5 +10,5 @@ primeFactors n = factor n primes
         | n `mod` p == 0 = p : factor (n `div` p) (p:ps)
         | otherwise      = factor n ps
 
-main :: IO()
-main = print $ last (primeFactors 600851475143)
+solution :: IO()
+solution = print $ last (primeFactors 600851475143)

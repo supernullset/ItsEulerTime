@@ -1,4 +1,4 @@
-module P024 (main) where
+module P024 (solution) where
 
 -- A permutation is an ordered arrangement of objects. For example,
 -- 3124 is one possible permutation of the digits 1, 2, 3 and 4. If
@@ -12,6 +12,6 @@ module P024 (main) where
 
 import Data.List (permutations, sort)
 
-main = read strNum :: Int
+solution = read strNum :: Int
   where
     strNum = foldl (\acc x ->acc ++ (show x) ) "" $ (sort $ permutations [0..9]) !! (1000000 - 1)

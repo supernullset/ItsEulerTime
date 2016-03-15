@@ -1,4 +1,4 @@
-module P015 (main) where
+module P015 (solution) where
 
 import Lib as L
 -- Starting in the top left corner of a 2×2 grid, and only being able
@@ -7,4 +7,4 @@ import Lib as L
 
 -- How many such routes are there through a 20×20 grid?
 
-main = L.choose (20 + 20) 20
+solution = L.choose (20 + 20) 20

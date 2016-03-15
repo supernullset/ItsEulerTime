@@ -1,4 +1,4 @@
-module P019 (main) where
+module P019 (solution) where
 import Lib as L
 
 -- You are given the following information, but you may prefer to do some research for yourself.
@@ -16,7 +16,7 @@ import Lib as L
 import Data.Time
 import Data.Time.Calendar.WeekDate
 
-main = length [() | y <- [1901..2000],
+solution = length [() | y <- [1901..2000],
                     m <- [1..12],
                     let (_, _, d) = toWeekDate $ fromGregorian y m 1,
                     d == 7]

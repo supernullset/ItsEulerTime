@@ -1,5 +1,6 @@
-module P044 (main,
-             pentagonalNumbers,
+module P044 (solution
+            , pentagonalNumbers
+            , isPentagonal
             ) where
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -26,4 +27,4 @@ findFirstPair = [ (x, y) |
                   isPentagonal (x + y)
                 ]
 
-main = (\(x,y) -> x - y) $ head findFirstPair
+solution = (\(x,y) -> x - y) $ head findFirstPair

@@ -1,11 +1,11 @@
-module P029Spec (main, spec) where
+module P029Spec (solution, spec) where
 
 import Test.Hspec
-import qualified P029 (main)
+import qualified P029 (solution)
 
-main = hspec spec
+solution = hspec spec
 
 spec = do
-  describe "main" $ do
+  describe "solution" $ do
     it "must yield the correct answer of 9183" $
-      P029.main `shouldBe` 9183
+      P029.solution `shouldBe` 9183

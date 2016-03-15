@@ -1,4 +1,4 @@
-module P027 (main) where
+module P027 (solution) where
 
 -- Euler discovered the remarkable quadratic formula:
 
@@ -27,7 +27,7 @@ generators = [(quadratic x y, x * y) | x <-[-999..999], y <- [-999..999]]
 lengthPrimes l = length $ takeWhile L.isPrime l
 
 -- calculates the maximum length and returns the (length, product of coefficients)
-main = snd $ maximum [(lengthPrimes $ map (fst g) [0..], snd g) | g <- generators]
+solution = snd $ maximum [(lengthPrimes $ map (fst g) [0..], snd g) | g <- generators]
 
 
 

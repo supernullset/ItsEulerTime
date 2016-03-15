@@ -1,4 +1,4 @@
-module P012 (main) where
+module P012 (solution) where
 {-
 problem 12:
 
@@ -30,7 +30,7 @@ triangleTerm n = sum [0..n]
 termList = map triangleTerm [0..]
 
 
-main = head $ filter ((> 500) . nDivisors) triangleNumbers
+solution = head $ filter ((> 500) . nDivisors) triangleNumbers
     where nDivisors n = product $ map ((+1) . length) (group (primeFactors n))
           triangleNumbers = scanl1 (+) [1..]
 

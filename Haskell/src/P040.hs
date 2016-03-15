@@ -1,4 +1,4 @@
-module P040 (main) where
+module P040 (solution) where
 
 -- An irrational decimal fraction is created by concatenating the positive integers:
 
@@ -16,4 +16,4 @@ import Data.Char (digitToInt)
 digitAt :: Int -> Int
 digitAt n = digitToInt $ last $ take n $ concatMap (show) [1..]
 
-main = foldl (\acc x -> acc * (digitAt x)) (1) [1, 10, 100, 1000, 10000, 100000, 1000000]
+solution = foldl (\acc x -> acc * (digitAt x)) (1) [1, 10, 100, 1000, 10000, 100000, 1000000]

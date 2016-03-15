@@ -1,4 +1,4 @@
-module P033 (main) where
+module P033 (solution) where
 -- The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.
 
 -- We shall consider fractions like, 30/50 = 3/5, to be trivial examples.
@@ -30,4 +30,4 @@ isCurious num denom | num == denom = False
      rDenom = fromIntegral $ digitToInt $ head $ delete (head $ show $ fromJust common) (show denom)
      common = commonNumber num denom
 
-main = denominator $ foldl1 (*) $ map (\(x,y) -> (fromIntegral x / fromIntegral y)) $ [(x,y)| x<-[11..99], y<-[11..99], (True == isCurious x y), x < y]
+solution = denominator $ foldl1 (*) $ map (\(x,y) -> (fromIntegral x / fromIntegral y)) $ [(x,y)| x<-[11..99], y<-[11..99], (True == isCurious x y), x < y]

@@ -1,4 +1,4 @@
-module P028 (main) where
+module P028 (solution) where
 
 -- Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
 
@@ -16,4 +16,4 @@ module P028 (main) where
 -- at the second "level" everything starts to follow a power of 2
 -- rule, 2^(level+1) for the length of the box
 sizeOfSpiral = 1001
-main = 1 + (sum $ scanl1 (+) $ concatMap (replicate 4) [2,4..(sizeOfSpiral-1)])
+solution = 1 + (sum $ scanl1 (+) $ concatMap (replicate 4) [2,4..(sizeOfSpiral-1)])

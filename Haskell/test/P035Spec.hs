@@ -1,9 +1,9 @@
-module P035Spec (main, spec) where
+module P035Spec (solution, spec) where
 
 import Test.Hspec
 import qualified P035
 
-main = hspec spec
+solution = hspec spec
 
 spec = do
   describe "containsTwoOrFive" $ do
@@ -29,6 +29,6 @@ spec = do
       P035.containsTwoOrFive 10500 `shouldBe` True
 
 
-  describe "main" $ do
+  describe "solution" $ do
     it "must yield the correct answer of 55" $
-      P035.main `shouldBe` 55
+      P035.solution `shouldBe` 55

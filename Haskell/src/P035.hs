@@ -1,5 +1,5 @@
 module P035 (
-    main
+    solution
   , containsTwoOrFive
   ) where
 
@@ -22,6 +22,6 @@ uLimit = 1000000
 -- which are some of the first matching condiditions. I
 -- figure that the manual addition is better than the
 -- "prettieer" logic only solution
-main = 2 + length [() | x <- [1..uLimit]
+solution = 2 + length [() | x <- [1..uLimit]
                       , False == (containsTwoOrFive x)
                       , True == (L.isCircularPrime x)]

@@ -1,4 +1,4 @@
-module P030 (main) where
+module P030 (solution) where
 
 -- Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
 
@@ -18,5 +18,5 @@ isSumOfFifthPower n = n == (foldl (\acc x ->acc + x^5) 0 $ map (toInteger . digi
 -- -- 1000000 is my arbitrary stopping point
 limit = 1000000
 -- 1 is not included
-main = sum $ filter isSumOfFifthPower [2..limit]
+solution = sum $ filter isSumOfFifthPower [2..limit]
 

@@ -1,9 +1,9 @@
-module LibSpec (main, spec) where
+module LibSpec (solution, spec) where
 
 import Test.Hspec
 import Lib
 
-main = hspec spec
+solution = hspec spec
 
 spec = do
   describe "isPrime" $ do

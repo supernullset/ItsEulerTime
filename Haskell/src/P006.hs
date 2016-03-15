@@ -1,4 +1,4 @@
-module P006 (main) where
+module P006 (solution) where
 
 import Lib as L
 
@@ -13,8 +13,8 @@ Hence the difference between the sum of the squares of the first ten natural num
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 -}
-main :: Int
-main = squareSum [1..100] - sumSquare [1..100]
+solution :: Int
+solution = squareSum [1..100] - sumSquare [1..100]
 
 -- determines the sum of the square or all numebrs in a list
 sumSquare :: [Int] -> Int

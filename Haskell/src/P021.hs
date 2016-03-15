@@ -1,4 +1,4 @@
-module P021 (main) where
+module P021 (solution) where
 
 -- Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
 -- If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
@@ -18,4 +18,4 @@ isAmicable (a,b) = (sumProperDivisors a == b && sumProperDivisors b == a) && a /
 
 pairs xs = [(x1, x2) | (x1:xs1) <- tails xs, x2 <- xs1]
 
-main = foldl (\acc (x,y) -> acc + x + y) 0 $ filter isAmicable $ pairs [1..10000]
+solution = foldl (\acc (x,y) -> acc + x + y) 0 $ filter isAmicable $ pairs [1..10000]

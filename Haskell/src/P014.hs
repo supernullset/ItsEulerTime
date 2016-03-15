@@ -1,4 +1,4 @@
-module P014 (main) where
+module P014 (solution) where
 
 {-
 problem 14.hs
@@ -28,10 +28,10 @@ recursiveCollatz 1 = [1]
 recursiveCollatz n | even n    = n : recursiveCollatz (n `div` 2)
                    | otherwise = n : recursiveCollatz (3 * n + 1)
 
--- main = last (sortBy (compare `on` length . snd) $ collatz)
+-- solution = last (sortBy (compare `on` length . snd) $ collatz)
 --   where 
 --     collatz = map (\x -> (x, recursiveCollatz x)) [1..1000000]
 
 -- maximumBy is great, it seems to discard as we go. This is a good
 -- thing to know
-main = maximumBy (compare `on` (length . recursiveCollatz)) [1..999999]
+solution = maximumBy (compare `on` (length . recursiveCollatz)) [1..999999]

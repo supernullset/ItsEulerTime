@@ -1,4 +1,4 @@
-module P011 (main, parMain) where
+module P011 (solution, parMain) where
 
 import Lib as L
 import Data.List (transpose)
@@ -79,7 +79,7 @@ leftDiagonals = lower ++ upper where
 directions = concat [horizontals, verticals, rightDiagonals, leftDiagonals]
 
 -- group by 4 and find max
-main = maximum . map product $ concatMap (\o -> groupsOf 4 o) directions
+solution = maximum . map product $ concatMap (\o -> groupsOf 4 o) directions
 
 -- Parallel version
 parMain = runEval $ do

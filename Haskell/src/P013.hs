@@ -1,4 +1,4 @@
-module P013 (main) where
+module P013 (solution) where
 import Data.List
 import Data.Char
 
@@ -109,6 +109,6 @@ numbers = [
   , 53503534226472524250874054075591789781264330331690
   ]
 
-main = take 10 . show . sum $ numbers
+solution = take 10 . show . sum $ numbers
 
 

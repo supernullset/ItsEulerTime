@@ -1,4 +1,4 @@
-module P020 (main) where
+module P020 (solution) where
 
 -- n! means n × (n − 1) × ... × 3 × 2 × 1
 -- For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
@@ -7,4 +7,4 @@ module P020 (main) where
 
 import Data.Char (digitToInt)
 
-main = sum $ map digitToInt $ show $ foldl1 (*) [1..100]
+solution = sum $ map digitToInt $ show $ foldl1 (*) [1..100]

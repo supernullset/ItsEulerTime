@@ -1,4 +1,4 @@
-module P039 (main) where
+module P039 (solution) where
 
 -- If p is the perimeter of a right angle triangle with integral
 -- length sides, {a,b,c}, there are exactly three solutions for p =
@@ -12,7 +12,7 @@ import qualified Lib as L
 import Data.List (elemIndex, sort, group)
 
 -- extract solution from array
-main = head $ permutationsOfPerimeters !! maxIndex
+solution = head $ permutationsOfPerimeters !! maxIndex
   where
     -- uses https://en.wikipedia.org/wiki/Pythagorean_triple formulas
     -- to generate perimeters of closed triples

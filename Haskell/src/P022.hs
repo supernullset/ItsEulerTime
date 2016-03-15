@@ -1,11 +1,11 @@
-module P022 (main) where
+module P022 (solution) where
 
 import System.IO.Unsafe (unsafePerformIO)
 import System.IO (readFile)
 import qualified Data.Map.Strict as Map
 import Data.List (sort)
 
-solution = do
+sol = do
   let numVals = Map.fromList $ zip ['A'..'Z'] [1..26]
   names <- readFile "src/extras/022.txt"
   let ns = sort $ read (['['] ++ names ++ [']']) :: [String]
@@ -13,4 +13,4 @@ solution = do
   return $ sum $ zipWith (*) intNs [1..]
 
 -- TODO: This is super bad
-main = unsafePerformIO solution
+solution = unsafePerformIO sol

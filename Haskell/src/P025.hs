@@ -1,4 +1,4 @@
-module P025 (main) where
+module P025 (solution) where
 
 -- The Fibonacci sequence is defined by the recurrence relation:
 
@@ -41,6 +41,6 @@ fibMatrixes = scanl1 M.multStd $ repeat eulerMatrix
 fibs :: [Integer]
 fibs = concatMap getSuccesiveFibs $ fibMatrixes
 
-main :: Integer
+solution :: Integer
 -- add one since im starting my fibs at the second 1
-main = 1 + head [i | (i,x) <- zip [1..] fibs, length (show x) == 1000 ]
+solution = 1 + head [i | (i,x) <- zip [1..] fibs, length (show x) == 1000 ]

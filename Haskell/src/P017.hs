@@ -1,4 +1,4 @@
-module P017 (main) where
+module P017 (solution) where
 
 import Lib as L
 import Data.Char (digitToInt)
@@ -61,5 +61,5 @@ phrase n | length word == 1 = getNumber n
          | length word == 3 = (getNumber (digitToInt $ head word)) ++ "hundred" ++ withAnd (read (tail word) :: Int)
   where word = show n
 
-main :: Int
-main = (sum $ map (\x -> length (phrase x)) [1..999]) + 11 --(length "onethousand")
+solution :: Int
+solution = (sum $ map (\x -> length (phrase x)) [1..999]) + 11 --(length "onethousand")

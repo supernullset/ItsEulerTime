@@ -1,4 +1,4 @@
-module P004 (main) where
+module P004 (solution) where
 
 import Lib as L
 
@@ -10,8 +10,8 @@ import Lib as L
 multiples :: [String]
 multiples = [ show $ fromIntegral x*y | x <- [1..999], y <- [1..999]]
 
-main :: Int
-main = result
+solution :: Int
+solution = result
   where
     result = maximum (map (\y -> read y :: Int) palindromes)
     palindromes = filter (\x -> L.isPalendrome x) $ reverse multiples
