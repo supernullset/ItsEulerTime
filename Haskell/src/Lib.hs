@@ -5,6 +5,7 @@ module Lib
        , factors
        , isPalendrome
        , primes
+       , primesUpTo
        , primeFactors
        , groupsOf
        , groupIn
@@ -25,6 +26,7 @@ import Data.Char as C
 import qualified Data.Numbers.Primes as P
 import qualified Data.List as L (tails, inits, init, nub, sort)
 import qualified Numeric as N (showIntAtBase)
+import qualified SieveOfEratohenes as SOE
 
 -- determines if a number is Prime
 isPrime :: Integer -> Bool
@@ -61,6 +63,9 @@ primeFactors = P.primeFactors
 -- returns an infinite list of prime numbers
 primes :: [Integer]
 primes = P.primes
+
+primesUpTo :: Int -> [Int]
+primesUpTo = SOE.primesUpTo
 
 -- returns groups of n elements from a list, every combination 1 by 1,
 -- keeps stragglers where length xs < n
