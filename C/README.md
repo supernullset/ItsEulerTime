@@ -1,0 +1,3 @@
+Hey look - its project Euler in raw C!!
+
+This will be interesting...
