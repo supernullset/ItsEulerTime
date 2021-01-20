@@ -4,3 +4,8 @@ Julia/.DS_Store
 
 Haskell/.stack-work
 
+C/dist/*
+
+Writeups/*
+
+bucklescript-reason-euler/*
