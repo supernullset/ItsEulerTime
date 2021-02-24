@@ -16,6 +16,8 @@ int main(void)
   // Brute force search - there is an additonal perf improvement that
   // we could hit here by some basic math about what numbers are
   // possible candidates 2021-01-20:14:48
+
+  // Q: Can I improve upon this by prime factorization somehow?
   for (int i = 0; i < 1000; ++i) {
     if (i % 3 == 0 || i % 5 == 0) {
       sum += i;
